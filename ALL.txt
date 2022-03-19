@@ -1334,3 +1334,1127 @@ Kode : Perulangan Dengan Post Statement
     }
 
 </script>
+
+While Loop
+While loop adalah versi perulangan yang lebih sederhana dibanding for loop
+Di while loop, hanya terdapat kondisi perulangan, tanpa ada init statement dan post statement
+
+Kode : While Loop
+<script>
+
+    let counter = 1
+    while (counter <= 10) {
+        document.writeln(`<p>Perulangan ke ${counter}</p>`);
+        counter++
+    }
+
+</script>
+
+Do While Loop
+Do While loop adalah perulangan yang mirip dengan while
+Perbedaannya hanya pada pengecekan kondisi
+Pengecekan kondisi di while loop dilakukan di awal sebelum perulangan dilakukan, sedangkan di do while loop dilakukan setelah perulangan dilakukan
+Oleh karena itu dalam do while loop, minimal pasti sekali perulangan dilakukan walaupun kondisi tidak bernilai true
+
+Kode : Do While Loop
+<script>
+
+    let counter = 1
+    do {
+        document.writeln(`<p>Perulangan ke ${counter}</p>`);
+        counter++
+    } while (counter <= 10);
+
+</script>
+
+Break dan Continue
+Pada switch statement, kita sudah mengenal kata kunci break, yaitu untuk menghentikan case dalam switch
+Sama dengan pada perulangan, break juga digunakan untuk menghentikan seluruh perulangan.
+Namun berbeda dengan continue, continue digunakan untuk menghentikan perulangan saat ini, lalu melanjutkan ke perulangan selanjutnya
+
+Kode : Break
+<script>
+
+    let counter = 1;
+
+    while(true){
+        document.writeln(`<p>Perulangan ke-${counter}</p>`);
+        counter++;
+
+        if(counter > 10){
+            break;
+        }
+    }
+
+</script>
+
+Kode : Continue
+<script>
+
+    for (let i = 1; i <= 100; i++) {
+        if(i % 2 === 0){
+            continue;
+        }
+        document.writeln(`<p>Perulangan Ganjil ${i}</p>`);
+    }
+
+</script>
+
+Label
+Label merupakan penanda yang bisa digunakan dengan kata kunci break dan continue
+Secara default saat kita melakukan break atau continue, dia akan melakukan terhadap perulangan dimana kode break dan continue itu digunakan
+Dengan menggunakan label, kita bisa melakukan break dan continue terhadap perulangan yang kita inginkan, asalkan pada perulangannya kita gunakan label
+Untuk membuat label, kita bisa gunakan nama label lalu diikuti dengan : (titik dua)
+
+Kode : Label
+<script>
+    loopi:
+        for (let i = 0; i < 10; i++) {
+            loopj:
+                for (let j = 0; j < 100; j++) {
+                    if(j > 10){
+                        continue loopi;
+                    }
+                    console.info(`${i} - ${j}`);
+                }
+        }
+</script>
+
+Kode : Continue atau Break di Label
+                for (let j = 0; j < 100; j++) {
+                    if(j > 10){
+                        continue loopi;
+                    }
+                    console.info(`${i} - ${j}`);
+                }
+
+For In
+For In merupakan perulangan for yang digunakan untuk mengiterasi seluruh data property di object atau index di array
+Walaupun for in bisa digunakan untuk Array, namun tidak direkomendasikan untuk Array, karena biasanya kita jarang sekali butuh data index untuk Array, kita bisa menggunakan For Of (yang dibahas setelah ini)
+
+Kode : For In di Object
+<script>
+
+    const person = {
+        firstName: "EKo",
+        middleName: "Kurniawan",
+        lastName: "Khannedy"
+    };
+
+    for(const property in person){
+        document.writeln(`<p>${property} : ${person[property]}</p>`);
+    }
+
+    const names = ["Eko", "Kurniawan", "Khannedy"];
+    for(const index in names){
+        document.writeln(`<p>${index} : ${names[index]}</p>`);
+    }
+
+</script>
+
+Kode : For In di Array
+ const names = ["Eko", "Kurniawan", "Khannedy"];
+    for(const index in names){
+        document.writeln(`<p>${index} : ${names[index]}</p>`);
+    }
+
+For Of
+Jika For In digunakan untuk melakukan iterasi property atau index, berbeda dengan For Of, ini digunakan untuk melakukan iterasi terhadap isi value dari iterable object, seperti Array, String dan lain-lain
+For of tidak bisa digunakan untuk melakukan iterasi data di object, karena object bukanlah iterable.
+
+Kode : For Of di Array
+<script>
+
+    const names = ["Eko", "Kurniawan", "Khannedy"];
+    for(const name of names){
+        document.writeln(`<p>${name}</p>`);
+    }
+
+    const fullName = "Eko Kurniawan Khannedy";
+    for(const character of fullName){
+        document.writeln(`<p>${character}</p>`);
+    }
+
+    // const person = {
+    //     firstName: "Eko",
+    //     lastName: "Khannedy"
+    // };
+    // for(const name of person){
+    //     document.writeln(`<p>${name}</p>`);
+    // }
+
+</script>
+
+Kode : For Of di String
+ const fullName = "Eko Kurniawan Khannedy";
+    for(const character of fullName){
+        document.writeln(`<p>${character}</p>`);
+    }
+
+With Statement
+With statement merupakan fitur yang digunakan untuk menurunkan sebuah scope data
+Dengan menggunakan with statement, kita bisa mengakses property dalam sebuah data tanpa harus menyebut datanya
+
+Kode : Tanpa With Statement
+<script>
+
+    const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy"
+    };
+
+    console.info(person.firstName);
+    console.info(person.middleName);
+    console.info(person.lastName);
+
+    const firstName = "Budi";
+    const lastName = "Nugraha";
+
+    with (person) {
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+    }
+
+</script>
+
+Kode : Dengan With Statement
+const firstName = "Budi";
+    const lastName = "Nugraha";
+
+    with (person) {
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+    }
+
+With Statement Tidak Direkomendasikan
+Walaupun fitur with statement ini sangat menarik
+Namun kebanyakan orang tidak merekomendasikan penggunaan with statement
+Hal ini dikarenakan with statement kadang membuat sebuah kode menjadi ambigu
+
+Kode : Ambigu di With Statement
+    const firstName = "Budi";
+    const lastName = "Nugraha";
+
+    with (person) {
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+    }
+
+Function
+Function adalah blok kode program yang akan berjalan saat kita panggil
+Sebelumnya kita sudah menggunakan function writeln() untuk menampilkan tulisan di html
+Untuk membuat function, kita bisa menggunakan kata kunci function, lalu diikuti dengan nama function, kurung () dan diakhiri dengan block kurung {}
+Kita bisa memanggil function dengan menggunakan nama function lalu diikuti dengan kurung ()
+Di bahasa pemrograman lain, function juga disebut dengan method
+
+Kode : Function
+<script>
+
+    function sayHelloWorld(){
+        document.writeln("<p>Hello World</p>");
+    }
+
+    sayHelloWorld();
+    sayHelloWorld();
+    sayHelloWorld();
+
+</script>
+
+Function Parameter
+Kita bisa mengirim informasi ke function yang ingin kita panggil
+Untuk melakukan hal tersebut, kita perlu menambahkan parameter atau argument di function yang sudah kita buat
+Parameter ditempatkan di dalam kurung () di deklarasi method
+Parameter bisa lebih dari satu, jika lebih dari satu, harus dipisah menggunakan tanda koma
+
+Kode : Function Parameter
+<script>
+
+    function sayHello(firstName, lastName){
+        document.writeln(`<p>Hello ${firstName} ${lastName}</p>`);
+    }
+
+    sayHello("Eko", "Khannedy");
+    sayHello("Budi", "Nugraha");
+
+</script>
+
+Function Return Value
+Secara default, function itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa membuat sebuah function mengembalikan value
+Agar function bisa menghasilkan value, kita bisa menggunakan kata kunci return di dalam function nya.
+Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata kunci return, lalu diikuti dengan data yang ingin kita hasilkan.
+Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data sekaligus, kita bisa menggunakan Array sebagai return value nya
+
+Kode : Function Return Value
+<script>
+
+    function sayHello(firstName, lastName) {
+        const say = `Hello ${firstName} ${lastName}`;
+        return say;
+    }
+
+    const result = sayHello("Eko", "Khannedy");
+    document.writeln(`<p>${result}</p>`);
+
+    function getFinalValue(value) {
+        if (value > 90) {
+            return "A";
+        } else if (value > 80) {
+            return "B";
+        } else if (value > 70) {
+            return "C";
+        } else if (value > 60) {
+            return "D"
+        } else {
+            return "E";
+        }
+    }
+
+    const finalValue = getFinalValue(76);
+    document.writeln(`<p>${finalValue}</p>`);
+
+    function isContains(array, searchValue){
+        for (const element of array) {
+            console.info(`Iterasi Element ${element}`);
+            if(element === searchValue){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const array = [1,32,4324,3,43,53,53,43,43,535,35,5];
+    const search = 43;
+    const found = isContains(array, search);
+    document.writeln(`<p>${found}</p>`);
+
+</script>
+
+Kode : Function Return Value Lebih Dari Satu
+    function getFinalValue(value) {
+        if (value > 90) {
+            return "A";
+        } else if (value > 80) {
+            return "B";
+        } else if (value > 70) {
+            return "C";
+        } else if (value > 60) {
+            return "D"
+        } else {
+            return "E";
+        }
+    }
+
+Menghentikan Eksekusi dengan Return
+Saat kita menggunakan kata kunci return, maka kode setelah return tersebut tidak akan dieksekusi
+Kita bisa menggunakan return untuk menghentikan eksekusi sebuah function
+
+Kode : Menghentikan Eksekusi dengan Return
+function isContains(array, searchValue){
+        for (const element of array) {
+            console.info(`Iterasi Element ${element}`);
+            if(element === searchValue){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const array = [1,32,4324,3,43,53,53,43,43,535,35,5];
+    const search = 43;
+    const found = isContains(array, search);
+    document.writeln(`<p>${found}</p>`);
+
+Optional Parameter
+Secara default, parameter di function itu optional
+Artinya kita tidak wajib mengisi value nya ketika memanggil function
+Jika tidak ada value yang kita kirim ke parameter ketika memanggil function, maka secara otomatis parameter tersebut bernilai undefined
+
+Kode : Optional Parameter
+<script>
+
+
+    function sayHello(firstName, middleName, lastName){
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+    }
+
+    sayHello();
+    sayHello("Eko");
+    sayHello("Eko", "Kurniawan")
+    sayHello("Eko", "Kurniawan", "Khannedy")
+    sayHello("Eko", "Kurniawan", "Khannedy", "Budi")
+
+</script>
+
+Default Parameter
+Sekarang kita tahu bahwa parameter itu optional, artinya kita bisa tidak memberi value terhadap parameter
+Parameter juga bisa kita beri default value, artinya jika ketika kita tidak mengirim data ke parameter atau kita mengirim data undefined, maka secara otomatis parameter akan diisi oleh default value
+
+Kode : Default Parameter
+<script>
+
+    function register(name, gender = "UNKNOWN") {
+        console.info(name);
+        console.info(gender);
+    }
+
+    register();
+    register("Eko");
+    register("Eko", "MALE");
+    register("Eko", undefined);
+    register("Eko", null);
+
+</script>
+
+Rest Parameter
+Rest Parameter adalah fitur dimana kita bisa mengirim data sebanyak-banyak nya pada satu parameter, dan secara otomatis akan di konversi menjadi Array
+Untuk membuat rest parameter, ada ketentuannya
+Rest parameter hanya boleh ada satu di function, tidak boleh lebih dari satu
+Rest parameter hanya boleh berada di posisi paling akhir, tidak boleh di depan atau di tengah, kecuali memang cuma ada 1 parameter
+Di bahasa pemrograman lain, ada juga yang bilang ini adalah variable argument
+
+Kode : Rest Parameter
+<script>
+
+    function sum(name, ...data){
+        let total = 0;
+        for (const item of data) {
+            total += item;
+        }
+        document.writeln(`<p>Total ${name} is ${total}</p>`);
+    }
+
+    sum("Orance", 10, 20, 30, 40, 50, 60);
+    sum("Apple", 10, 20, 30, 40, 50, 60);
+    sum("Banana", 10, 20, 30, 40, 50, 60);
+
+    const values = [10,10,10,10,10];
+    sum("Test", ...values);
+
+    function oldSum(){
+        let total = 0;
+        for (const argument of arguments) {
+            total += argument;
+        }
+        document.writeln(`<p>Total is ${total}</p>`);
+    }
+
+    oldSum(1,2,3,4,5);
+
+</script>
+
+Spread Syntax
+Kadang kita terlanjur memiliki data berupa Array
+Tapi untungnya kita juga bisa mengirim Array ke Rest Parameter
+Kita bisa gunakan … (titik tiga kali) diikuti dengan array nya ketika memanggil function
+Fitur ini dinamakan Spread Syntax
+
+Kode : Spread Syntax di Rest Parameter
+    function sum(name, ...data){
+        let total = 0;
+        for (const item of data) {
+            total += item;
+        }
+        document.writeln(`<p>Total ${name} is ${total}</p>`);
+    }
+
+    sum("Orance", 10, 20, 30, 40, 50, 60);
+    sum("Apple", 10, 20, 30, 40, 50, 60);
+    sum("Banana", 10, 20, 30, 40, 50, 60);
+
+    const values = [10,10,10,10,10];
+    sum("Test", ...values);
+
+Arguments Object
+Sebelum ada fitur rest parameter, di JavaScript sudah ada fitur yang bernama arguments object
+Ini adalah fitur dimana kita bisa mengambil semua parameter dalam bentuk array dengan menggunakan object bernama arguments
+arguments secara otomatis bisa digunakan di function
+Namun perlu diingat, bahwa untuk JavaScript saat ini, lebih baik disarankan menggunakan rest parameter dibanding arguments object
+
+Kode : Arguments Object
+    function oldSum(){
+        let total = 0;
+        for (const argument of arguments) {
+            total += argument;
+        }
+        document.writeln(`<p>Total is ${total}</p>`);
+    }
+
+    oldSum(1,2,3,4,5);
+
+Function Sebagai Value
+Function tidak hanya bisa digunakan sebagai kode program yang dieksekusi, tapi bisa juga sebagai value
+Artinya, function bisa disimpan di variable, bisa juga dikirim melalui parameter ke function lainnya
+
+Kode : Function di Variable
+<script>
+
+    function sayHello(name){
+        document.writeln(`<p>Hello ${name}</p>`);
+    }
+
+    sayHello("Eko");
+
+    const say = sayHello;
+
+    say("Budi");
+
+    function giveMeName(callback){
+        callback("Eko"); // sayHello("Eko");
+    }
+
+    giveMeName(sayHello)
+    giveMeName(say); // giveMeName(sayHello)
+
+</script>
+
+Kode : Function di Parameter
+    function sayHello(name){
+        document.writeln(`<p>Hello ${name}</p>`);
+    }
+
+    sayHello("Eko");
+
+    const say = sayHello;
+
+    say("Budi");
+
+    function giveMeName(callback){
+        callback("Eko"); // sayHello("Eko");
+    }
+
+    giveMeName(sayHello)
+    giveMeName(say); // giveMeName(sayHello)
+
+Anonymous Function
+Sebelumnya kita selalu membuat function dengan nama
+Kita juga bisa membuat function tanpa nama function, atau istilahnya adalah anonymous function
+Kita bisa buat anonymous function dalam sebuah variable atau bisa juga kita buat ketika mengisi parameter
+
+Kode : Anonymous Function di Variable
+<script>
+
+    const say = function(name){
+        document.writeln(`<p>Hello ${name}</p>`);
+    }
+
+    say("Eko");
+    say("Budi");
+
+    function giveMeName(callback){
+        callback("Eko");
+    }
+
+    giveMeName(say);
+
+    giveMeName(function(name){
+        document.writeln(`<p>Hi ${name}</p>`);
+    });
+
+    giveMeName(function(name){
+        document.writeln(`<p>Hi ${name}</p>`);
+    });
+
+    giveMeName(function(name){
+        document.writeln(`<p>Hi ${name}</p>`);
+    });
+
+</script>
+
+Kode : Anonymous Function di Parameter
+function giveMeName(callback){
+        callback("Eko");
+    }
+
+    giveMeName(say);
+
+    giveMeName(function(name){
+        document.writeln(`<p>Hi ${name}</p>`);
+    });
+
+Function dalam Function
+Tidak ada batasan dimana kita bisa membuat function
+Termasuk jika kita ingin membuat function di dalam sebuah function, kita bisa melakukannya
+Function yang terdapat di dalam, kita sebut inner function
+Inner function hanya bisa diakses di tempat kita membuat function nya, tidak bisa diakses dari luar function nya
+
+Kode : Function dalam Function
+<script>
+
+    function outer(){
+
+        function inner(){
+            console.info("Inner");
+        }
+
+        inner();
+        inner();
+
+    }
+
+    outer();
+    inner();
+
+</script>
+
+Scope
+Scope merupakan area akses sebuah data
+Ada dua jenis scope, global scope dan local scope.
+Setiap kita membuat function, maka kita akan membuat local scope untuk function tersebut
+Data di global scope bisa diakses dari local scope, namun data di local scope hanya bisa di akses di local scope tersebut atau di scope local dibawahnya (dalam kasus function dalam function)
+
+Kode : Global Scope 
+<script>
+
+    // global scope
+    let counter = 0;
+
+    // global scope
+    function hitMe(){
+        // local scope hitMe
+        counter++;
+    }
+
+    // global scope
+    function other(){
+        // local scope other
+    }
+
+    hitMe();
+    hitMe();
+
+    console.info(counter);
+
+    function first(){
+        // local scope first
+        let firstVariable = "First";
+
+        function firstNested(){
+            console.info(firstVariable);
+            const firstNestedVariable = "First Nested";
+        }
+
+        firstNested();
+        console.info(firstNestedVariable);
+    }
+
+    function second(){
+        // local scope second
+        let secondVariable = "Second";
+        // console.info(firstVariable); // ERROR
+    }
+
+    first();
+    second();
+
+    // global scope
+    // console.info(firstVariable); // ERROR
+    // console.info(secondVariable); // ERROR
+
+</script>
+
+Kode : Local Scope
+    function first(){
+        // local scope first
+        let firstVariable = "First";
+
+        function firstNested(){
+            console.info(firstVariable);
+            const firstNestedVariable = "First Nested";
+        }
+
+        firstNested();
+        console.info(firstNestedVariable);
+    }
+
+    function second(){
+        // local scope second
+        let secondVariable = "Second";
+        // console.info(firstVariable); // ERROR
+    }
+
+    first();
+    second();
+
+Kode : Nested Function Scope
+    function first(){
+        // local scope first
+        let firstVariable = "First";
+
+        function firstNested(){
+            console.info(firstVariable);
+            const firstNestedVariable = "First Nested";
+        }
+
+        firstNested();
+        console.info(firstNestedVariable);
+    }
+
+Recursive Function
+Recursive function adalah kemampuan function memanggil function dirinya sendiri
+Kadang memang ada banyak problem, yang lebih mudah diselesaikan menggunakan recursive function, seperti contohnya kasus factorial
+
+Kode : Factorial Loop
+<script>
+
+    function factorial(value){
+        let result = 1;
+        for (let i = 1; i <= value; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    console.info(factorial(10));
+
+    function factorialRecursive(value){
+        if(value === 1){
+            return 1;
+        }else{
+            return value * factorialRecursive(value - 1);
+        }
+    }
+
+    console.info(factorialRecursive(10));
+
+    factorialRecursive(5);
+    // 5 * factorialRecursive(4)
+    // 5 * 4 * factorialRecursive(3)
+    // 5 * 4 * 3 * factorialRecursive(2)
+    // 5 * 4 * 3 * 2 * factorialRecursive(1)
+    // 5 * 4 * 3 * 2 * 1
+
+</script>
+
+Kode : Factorial Recursive
+    function factorialRecursive(value){
+        if(value === 1){
+            return 1;
+        }else{
+            return value * factorialRecursive(value - 1);
+        }
+    }
+
+Function Generator
+Function generator adalah function yang digunakan untuk membuat data generator
+Generator adalah data yang bisa di interasi seperti Array
+Untuk membuat function generator, kita perlu menggunakan tanda * (bintang) setelah kata function
+Dan untuk mengembalikan data di tiap iterasi, kita bisa gunakan kata kunci yield diikuti datanya
+
+Kode : Function Generator Sederhana
+<script>
+
+    function* createNames() {
+        yield "Eko";
+        yield "Kurniawan";
+        yield "Khannedy";
+    }
+
+    const names = createNames();
+    for (const name of names) {
+        console.info(name);
+    }
+
+    // lazy
+    function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+            if (i % 2 === 1) {
+                console.info(`Yield ${i}`);
+                yield i;
+            }
+        }
+    }
+
+    // eager
+    function buatGanjilArray(value) {
+        const result = []
+        for (let i = 1; i <= value; i++) {
+            if (i % 2 === 1) {
+                console.info(`Yield ${i}`);
+                result.push(i);
+            }
+        }
+        return result;
+    }
+
+    const numbers = buatGanjil(100);
+    // for (const number of numbers) {
+    //     console.info(number);
+    // }
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+
+
+</script>
+
+Kode : Function Generator Kompleks
+// lazy
+    function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+            if (i % 2 === 1) {
+                console.info(`Yield ${i}`);
+                yield i;
+            }
+        }
+    }
+
+    const numbers = buatGanjil(100);
+    // for (const number of numbers) {
+    //     console.info(number);
+    // }
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+
+Lazy Evaluation
+Generator itu sifatnya lazy
+Jadi artinya jika kita tidak data belum kita ambil dari generator, maka yield selanjutnya tidak akan di eksekusi
+
+Kode : Lazy Generator
+// lazy
+    function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+            if (i % 2 === 1) {
+                console.info(`Yield ${i}`);
+                yield i;
+            }
+        }
+    }
+
+    const numbers = buatGanjil(100);
+    // for (const number of numbers) {
+    //     console.info(number);
+    // }
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+
+Arrow Function
+Arrow function adalah alternatif pembuatan function yang lebih sederhana dari function biasanya
+Namun terdapat limitasi dan juga tidak bisa digunakan di semua situasi
+Dinamakan arrow function karena menggunakan tanda => (seperti panah)
+Berikut contoh beberapa kekurangan arrow function :
+tidak memiliki fitur arguments object
+tidak bisa menggunakan function generator
+tidak bisa mengakses this (yang nanti akan dibahas di function di object)
+tidak bisa mengakses super (yang nanti akan dibahas di JavaScript Object Oriented Programming)
+
+Kode : Membuat Arrow Function
+<script>
+
+    // const sayHello = (name) => {
+    //     const say = `Hello ${name}`;
+    //     console.info(say);
+    // }
+
+    // const sayHello = (name) => console.info(`Hello ${name}`);
+
+    const sayHello = name => console.info(`Hello ${name}`);
+
+    sayHello("Eko");
+
+    // const sum = (first, second) => {
+    //     return first + second;
+    // }
+
+    const sum = (first, second) => first + second;
+
+    console.info(sum(100, 100));
+
+    function giveMeName(callback){
+        callback("Eko");
+    }
+
+    // Anonymous Function
+    // giveMeName(function (name) {
+    //     console.info(`Hello ${name}`);
+    // })
+
+    // Arrow Function
+    giveMeName(name => console.info(`Hello ${name}`));
+
+</script>
+
+Arrow Function Tanpa Block
+Jika sebuah arrow function isinya sederhana, misal hanya satu baris
+Kita bisa membuat arrow function tanpa harus menggunakan block
+
+Kode : Arrow Function Tanpa Block
+    const sayHello = name => console.info(`Hello ${name}`);
+
+    sayHello("Eko");
+
+Arrow Function Return Value
+Arrow function bisa mengembalikan value, sama seperti function biasanya
+Jika menggunakan block, maka kita perlu menggunakan kata kunci return
+Jika tidak menggunakan block, kita tidak perlu menggunakan kata kunci return 
+
+Kode : Arrow Function Return Value
+    const sum = (first, second) => first + second;
+
+    console.info(sum(100, 100));
+
+Arrow Function Tanpa Kurung Parameter
+Jika parameter di arrow function hanya satu, kita bisa tidak menggunakan kurung pada parameter
+
+Kode : Arrow Function Tanpa Kurung Parameter
+    const sayHello = name => console.info(`Hello ${name}`);
+
+    sayHello("Eko");
+
+Kode : Arrow Function Sebagai Parameter
+Karena arrow function sama seperti anonymous function
+Jadi kita juga bisa menggunakan arrow function sebagai parameter di function lain
+
+Kode : Arrow Function Sebagai Parameter
+function giveMeName(callback){
+        callback("Eko");
+    }
+
+    // Anonymous Function
+    // giveMeName(function (name) {
+    //     console.info(`Hello ${name}`);
+    // })
+
+    // Arrow Function
+    giveMeName(name => console.info(`Hello ${name}`));
+
+Closure
+Closure adalah kombinasi function dan bundel referensi ke data disekitarnya.
+Oke agak membingungkan memang, apalagi untuk yang baru pertama belajar
+Kita sudah tahu bahwa local scope tidak bisa diakses di luar scope nya
+Dengan kemampuan closure, kita bisa membuat sebuah function di local scope dan referensi ke data di sekitar local scope tersebut, keluar scope nya
+
+Kode : Closure
+<script>
+
+    function createAdder(value){
+        const owner = "Eko";
+
+        function add(param){
+            console.info(owner);
+            return value + param;
+        }
+
+        return add;
+    }
+
+    const addTwo = createAdder(2);
+    // function addTwo(param){
+    //     console.info("Eko");
+    //     return 2 + param;
+    // }
+    console.info(addTwo(10));
+    console.info(addTwo(20));
+
+
+    const addTen = createAdder(10);
+    // function addTwo(param){
+    //     console.info("Eko");
+    //     return 10 + param;
+    // }
+    console.info(addTen(10));
+    console.info(addTen(20));
+
+</script>
+
+Object Method
+Pada tipe data object, kita sudah membahas tentang property di object
+Karena sebenarnya function juga merupakan salah satu tipe data, jadi function pun sebenarnya bisa ditambahkan sebagai property di object
+Cara pembuatannya pun sama dengan function sebagai value
+Function di object kadang disebut juga sebagai Object Method
+
+Kode : Membuat Object dengan Method
+<script>
+
+    // const person = {
+    //     name: "Eko",
+    //     sayHello: function (name){
+    //         alert(`Hello ${name}`);
+    //     }
+    // };
+
+    const person = {
+        name: "Eko"
+    };
+
+    person.sayHello = function (name){
+        alert(`Hello ${name}`);
+    }
+
+    person.sayHello('Budi');
+
+</script>
+
+Kode : Menambah Method ke Object
+const person = {
+        name: "Eko"
+    };
+
+    person.sayHello = function (name){
+        alert(`Hello ${name}`);
+    }
+
+    person.sayHello('Budi');
+
+Kata Kunci this
+Kata kunci this adalah referensi ke object milik siapa
+Tiap lokasi kata kunci this, bisa berbeda-beda referensi pemilik nya
+Dalam Object Method, this merupakan referensi ke object pemilik function nya
+Di global scope, this merupakan referensi ke global object (di browser biasanya Window)
+Dalam function, this merupakan referensi ke global object (di browser biasanya Window)
+Di function dengan strict mode (akan dibahas nanti), this adalah undefined
+Dalam event, this merupakan referensi ke element yang menerima event (dibahas di materi Document Object Model)
+
+Kode : this di Global Scope
+<script>
+
+    console.info(this);
+
+    function sample(){
+        console.info(this);
+
+        function inner(){
+            console.info(this);
+        }
+
+        inner();
+    }
+
+    sample();
+
+    const person = {
+        name: "Eko",
+        sayHello: function (value){
+            console.info(`Hello ${value} My Name is ${this.name}`);
+        }
+    };
+
+    person.sayHello("Budi");
+    person.sayHello("Joko");
+
+</script>
+
+Kode : this di Function
+
+Kode : this di Object Method
+
+Arrow Function di Object
+Sebelumnya kita sudah bahas tentang Arrow Function
+Arrow Function juga bisa kita gunakan di sebagai Object Method
+Namun perlu diketahui, Arrow Function tidak bisa digunakan untuk mengakses arguments object, function generator, kata kunci this dan kata kunci super (dibahas di materi JavaScript Object Oriented Programming)
+Jadi pastikan gunakan Arrow Function hanya memang ketika kita tidak butuh fitur-fitur diatas
+
+Kode : Arrow Function di Object Method
+<script>
+
+    const person = {
+        name: "Eko",
+        sayHello: (name) => {
+            console.info(this);
+            console.info(`Hello ${name}, My Name is ${this.name}`);
+        }
+    };
+
+    person.sayHello("Budi");
+
+</script>
+
+Kode : this di Arrow Function Object
+    const person = {
+        name: "Eko",
+        sayHello: (name) => {
+            console.info(this);
+            console.info(`Hello ${name}, My Name is ${this.name}`);
+        }
+    };
+
+    person.sayHello("Budi");
+
+Getter dan Setter
+Getter dan Setter adalah kemampuan membuat function yang berbeda untuk mengambil data (Getter) dan mengubah data (Setter) pada sebuah property di Object
+Dengan menggunakan Getter dan Setter, kita bisa melakukan hal apapun dalam function sebelum sebuah property di akses atau diubah, misal menambah validasi dan lain-lain
+
+Kode : Getter
+<script>
+
+    const person = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        get fullName(){
+            return `${this.firstName} ${this.lastName}`;
+        },
+        set fullName(value){
+            const array = value.split(" ");
+            this.firstName = array[0];
+            this.lastName = array[1];
+        }
+    };
+
+    person.fullName = "Budi Nugraha";
+    console.table(person);
+
+    person.fullName = "Joko Morro";
+    console.table(person);
+
+    person.fullName = "Eko Khannedy";
+    console.table(person);
+
+</script>
+
+Kode : Setter
+ set fullName(value){
+            const array = value.split(" ");
+            this.firstName = array[0];
+            this.lastName = array[1];
+        }
+    };
+
+    person.fullName = "Budi Nugraha";
+    console.table(person);
+
+Masalah Variable var
+Sebelumnya sudah dijelaskan bahwa penggunaan var sudah tidak direkomendasikan lagi, dan diganti dengan let
+Pertanyaannya kenapa?
+Alasan var tidak direkomendasikan digunakan lagi adalah, karena var tidak memiliki block scope, artinya dia tidak mengikat ke local scope yang sebelumnya sudah kita bahas
+Karena masalah ini, var bisa tidak terprediksi
+Kita akan buat contoh penggunaan var dan let
+
+Kode : Menggunakan let
+<script>
+
+    // global scope
+    var i = 20;
+
+    for (var i = 0; i < 10; i++) {
+        // local scope
+        console.info(`Local ${i}`);
+    }
+
+    console.info(`Global ${i}`);
+
+</script>
+
+Kode : Menggunakan var
+var i = 20;
+
+    for (var i = 0; i < 10; i++) {
+        // local scope
+        console.info(`Local ${i}`);
+    }
+
+    console.info(`Global ${i}`);
+
+Destructuring
+Destructuring adalah fitur yang bisa digunakan untuk membongkar value-value di array atau object ke dalam variable-variable
+Fitur ini sangat mempermudah kita ketika ingin mengambil data dari array atau object tanpa harus melakukan pengambilan data satu persatu
+
+Kode : Mengambil Data di Array
+
+
