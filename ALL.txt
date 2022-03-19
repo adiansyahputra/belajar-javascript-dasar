@@ -1,0 +1,341 @@
+Pengenalan JavaScript
+
+Sejarah JavaScript
+JavaScript atau sering disingkat JS, pertama kali dibuat tahun 1995. Programmer di Netscape bernama Brandan Eich membuat sebuah bahasa pemrograman scripting untuk berjalan di Netscape Navigator Browser.
+Awalnya namanya adalah Mocha, lalu berubah menjadi LiveScript, dan akhirnya menjadi JavaScript.
+JavaScript dibuat agar halaman website yang sudah kita buat menggunakan HTML dan CSS bisa lebih interaktif
+JavaScript sekarang sudah mengalahkan Java Applet dan Flash sebagai bahasa pemrograman untuk membuat halaman web menjadi lebih interaktif, hal ini dikarenakan kemudahan bahasa nya dan juga secara default sekarang semua browser sudah bisa menjalankan JavaScript tanpa harus menginstall aplikasi tambahan seperti Java Applet dan Adobe Flash Player
+
+JavaScript di Server
+Awalnya JavaScript memang kebanyakan di gunakan untuk berjalan di client side (Browser)
+Namun akhir-akhir ini, semenjak keluar teknologi NodeJS yang bisa digunakan untuk menjalankan JavaScript tanpa browser, sekarang akhirnya JavaScript juga banyak digunakan untuk membuat aplikasi di Server
+Karena ini, akhirnya sekarang JavaScript dikenal dengan bahasa pemrograman FullStack (Backend dan Frontend) karena bisa digunakan untuk membuat aplikasi Backend dan aplikasi Frontend
+
+JavaScript dan ECMAScript
+Karena JavaScript sekarang hampir di adopsi oleh sebua aplikasi browser, akhirnya dibuatlah sebuah standarisasi yang bernama ECMAScript
+Organisasi yang melakukan standarisasi ECMAScript adalah ECMA International
+Sekarang dengan adanya standarisasi, kita bisa pastikan bahwa kode program JavaScript kita bisa jalan di semua browser, karena browser yang ingin mendukung JavaScript, harus mengikuti standarisasi ECMAScript
+Sekarang karena ECMAScript dan JavaScript sama, sekarang bisa dibilang ECMAScript dan JavaScript adalah dua nama untuk satu bahasa pemrograman yang sama
+https://www.ecma-international.org/ 
+
+JavaScript vs Java
+Pemula programmer sering salah tentang JavaScript dan Java. Ada yang mengira bahwa Java dan JavaScript adalah bahasa pemrograman yang sama, padahal itu berbeda.
+Java adalah bahasa pemrograman lain, tidak ada hubungannya dengan JavaScript
+Walaupun namanya ada kata “Java” nya, tapi dua bahasa pemrograman ini benar-benar berbeda, tidak ada hubungannya sama sekali
+Jika tertarik untuk belajar bahasa pemrograman Java, silahkan belajar disini : https://www.programmerzamannow.com/video-tutorial-java/ 
+
+Peralatan Development
+Saat kita belajar JavaScript, kita perlu menyiapkan beberapa perangkat lunak untuk membantu development
+Browser, ini sudah pasti, karena kita perlu menjalankan kode program JavaScript menggunakan Browser
+Text Editor atau Integrated Development Environment, ini digunakan untuk membuat kode program JavaScript
+
+Browser
+Google Chrome : https://www.google.com/chrome/ 
+Firefox : https://www.mozilla.org/firefox/ 
+Microsoft Edge : https://www.microsoft.com/edge 
+Safari : https://www.apple.com/safari/ 
+Opera : https://www.opera.com/ 
+
+Text Editor atau IDE
+Visual Studio Code :  http://code.visualstudiocode.com/ 
+Atom : https://atom.io/ 
+Sublime : https://www.sublimetext.com/ 
+WebStorm : https://www.jetbrains.com/webstorm/ 
+Nodepad++ : https://notepad-plus-plus.org/ 
+Textmate : https://macromates.com/ 
+GNU Emacs : https://www.gnu.org/software/emacs/ 
+GEdit : https://wiki.gnome.org/Apps/Gedit 
+
+Program Hello World
+
+Membuat Kode JavaScript
+Ada beberapa cara untuk membuat kode JavaScript
+Bisa langsung di file HTML
+Atau bisa menggunakan file .js (ekstensi untuk JavaScript), lalu di include di dalam file HTML
+Pada praktek course ini kita akan menggunakan HTML langsung agar mudah membuat kode program nya
+
+Script JavaScript
+<body>
+<script>
+
+    document.writeln("Hello World");
+
+</script>
+</body>
+
+Include Script JavaScript
+<body>
+<script src="scripts/hello-world.js"></script>
+</body>
+
+Titik Koma
+JavaScript mirip seperti bahasa pemrograman C/C++, dimana di akhir tiap statement kode program, kita perlu menambahkan ; (titik koma)
+Namun, di JavaScript tanda ; (titik koma) tidak wajib, jadi kita bisa menambahkan ataupun tidak.
+Sangat disarankan konsisten, jika ingin menggunakan titik koma, gunakan disemua tempat, jika tidak, jangan gunakan di semua tempat
+Saya sendiri lebih merekomendasikan menggunakan titik koma
+
+Komentar
+Komentar adalah kode program yang tidak akan dieksekusi ketika dibaca
+Komentar biasanya digunakan sebagai informasi tambahan atau petunjuk
+Di JavaScript, kita bisa menambahkan kode komentar
+
+Kode : Komentar
+// Ini komentar satu baris
+    document.writeln("<p>Hello Komentar</p>");
+
+    /*
+    ini komentar lebih dari satu baris
+    bebas mau buat apapun
+     */
+    document.writeln("<p>Hello Komentar Lebih Dari Satu Baris</p>");
+    
+Tipe Data Number
+JavaScript hanya mendukung satu tipe data number, dimana tipe data number di JavaScript bisa berupa bilangan bulat atau bilangan desimal
+Tipe seperti di bahasa pemrograman lain yang biasanya membedakan tipe data number bilangan bulat dan bilangan desimal, di JavaScript semuanya disatukan
+
+Kode : Tipe Data Number
+<script>
+
+    document.writeln( 100 );
+    document.writeln("</br>");
+    document.writeln( 100.123 );
+    document.writeln("</br>");
+    document.writeln( 0b1111010 );
+
+</script>
+
+Number Notation
+JavaScript mendukung number notation, defaultnya ada basis 10, JavaScript juga mendukung binary, hexadecimal dan octal
+Hexadecimal : 0xFF
+Binary : 0b10101
+Octal : 0o10
+
+Tipe Data Boolean
+Tipe data boolean adalah tipe data yang berisikan data kebenaran, artinya hanya ada dua data, benar dan salah (yes atau no)
+Benar di representasikan dengan kata kunci true, dan salah direpresentasikan dengan kata kunci false
+Walaupun tipe data boolean merupakan tipe data yang sangat sederhana, tapi tipe data boolean akan banyak digunakan di berbagai fitur pemrograman
+
+Kode : Tipe Data Boolean
+<script>
+
+    document.writeln( true ); // benar
+    document.writeln("</br>");
+    document.writeln( false ); // salah
+
+</script>
+
+Tipe Data String
+Tipe data string atau text adalah tipe data yang berisikan kumpulan kosong atau lebih karakter
+Sebelumnya kita sudah pernah menggunakan string ketika membuat program hello world.
+Di JavaScript, untuk membuat data dengan tipe string, kita perlu menggunakan “ (petik dua) atau ‘ (petik satu) sebelum dan setelah isi text nya
+
+Kode : Tipe Data String
+    document.writeln("Eko Kurniawan Khannedy");
+    document.writeln("</br>");
+    document.writeln('Programmer Zaman Now');
+    document.writeln("</br>");
+
+Menambah String
+Data string bisa digabung menggunakan operator + (plus)
+
+Kode : Menambah String
+    document.writeln("Nama : " + "Eko " + "Kurniawan " + "Khannedy");
+    document.writeln("</br>");
+    document.writeln("Channel : " + "Programmer Zaman Now");
+
+Escape Sequence
+JavaScript mendukung escape sequence di string. Escape sequence merupakan karakter khusus, seperti ENTER, TAB, " (kutip dua), dan lain-lain. Berikut contoh escape sequence yang didukung oleh JavaScript di data string
+ \n
+ENTER
+\t
+TAB
+\’
+‘
+\”
+“
+\\
+\
+
+Kode : Escape Sequence
+    document.writeln("<textarea cols='100' rows='10'>");
+    document.write("Eko \nKurniawan \nKhannedy\n");
+    document.write("\\Home\\khannedy\n");
+    document.write("\"Programmer Zaman Now\"\n");
+    document.write('\'Belajar JavaScript\'\n');
+    document.writeln("</textarea>");
+
+Variable
+Variable adalah tempat untuk menyimpan data
+Dengan menyimpan data di variable, kita bisa menggunakannya lagi dengan menyebutkan nama variable nya
+Untuk membuat variable di JavaScript, kita bisa menggunakan kata kunci var diikuti dengan nama variable nya
+JavaScript adalah dynamic language, artinya variable di JavaScript tidak terpaku harus menggunakan satu tipe data, kita bisa mengubah-ubah tipe data di variable yang sama
+
+Kode : Variable
+
+    var fullName = "Eko Kurniawan Khannedy";
+    var firstName = "Eko";
+    var middleName = "Kurniawna";
+    var lastName = "Khannedy";
+
+Mengubah Value di Variable
+Setelah variable di deklarasikan, kita bisa mengubah value atau nilai di dalam variable tersebut
+Untuk mengubahnya, kita bisa menggunakan perintah nama variable diikuti dengan tanda = (sama dengan) lalu diikuti dengan value atau nilai nya
+
+Kode : Mengubah Value di Variable
+    var fullName = "Eko Kurniawan Khannedy";
+    var firstName = "Eko";
+    var middleName = "Kurniawna";
+    var lastName = "Khannedy";
+
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+
+    fullName = "Eko Khannedy";
+
+Membuat Variable Langsung Dengan Value
+Di JavaScript juga kita bisa mendeklarasikan sebuah variable, langsung dengan isi value nya
+Caranya kita bisa menggunakan kata kunci var, diikuti nama variable, lalu diikuti dengan tanda = (sama dengan), dan di ikuti dengan value atau nilai nya
+
+Kode : Variable dan Value
+    var fullName = "Eko Kurniawan Khannedy";
+    var firstName = "Eko";
+    var middleName = "Kurniawna";
+    var lastName = "Khannedy";
+
+Mengakses Variable
+Salah satu keuntungan menggunakan variable adalah variable bisa digunakan kembali
+Hal ini akan mempermudah ketika membutuhkan data yang sama berkali-kali
+Untuk mengakses variable, kita cukup menyebutkan nama variable nya
+
+    var fullName = "Eko Kurniawan Khannedy";
+    var firstName = "Eko";
+    var middleName = "Kurniawna";
+    var lastName = "Khannedy";
+
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+
+Kata Kunci let dan const
+Sebelum tahun 2015, kata kunci untuk membuat variable hanya bisa menggunakan kata kunci var
+Namun tahun 2015 sejak versi ECMAScript 2015, diperkenalkan kata kunci baru untuk membuat variable, let dan const
+JavaScript sekarang tidak direkomendasikan lagi menggunakan kata kunci var untuk membuat variable, namun diganti dengan let, hal ini dikarenakan ada masalah dari desain awal var (akan kita bahas di chapter tersendiri)
+
+Kode : Variable let
+    let fullName = "Eko Kurniawan Khannedy";
+    let firstName = "Eko";
+    let middleName = "Kurniawna";
+    let lastName = "Khannedy";
+
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+    document.writeln("</br>");
+    document.writeln(fullName);
+
+Kata Kunci const
+Kata kunci let itu seperti kata kunci var, dimana data di variable tersebut bisa diubah-ubah sesuka kita
+Sedangkan kata kunci const berbeda, ketika sebuah variable sudah diisi di variable const, maka variable tersebut tidak bisa diubah lagi value nya
+Variable sejenis ini kadang dibilang juga constant
+
+Kode : Variable const
+    const application = "Belajar JavaScript Dasar";
+
+    application = "Gak Mau Belajar"; // ERROR
+
+    document.writeln(application);
+
+Operator Matematika
+JavaScript mendukung banyak sekali operator Matematika untuk tipe data Number, seperti :
+Operator Aritmatika
+Operator Augmented Assignments
+Operator Unary
+Dan lain-lain
+
+Operator Aritmatika
+ Operator
+Keterangan
++
+Pertambahan
+-
+Pengurangan
+*
+Perkalian
+** 
+Exponensial
+/
+Pembagian
+%
+Sisa Bagi
+
+Kode : Operator Aritmatika
+    let result = 1 + 2; // 3
+    document.writeln("<p>1 + 2 = " + result + "</p>");
+    let originalResult = result; // 3
+
+    result = result - 1; // 2
+    document.writeln("<p>" + originalResult + " - 1 = " + result + "</p>");
+    originalResult = result; // 2
+
+    result = result * 2; // 4
+    document.writeln("<p>" + originalResult + " * 2 = " + result + "</p>");
+
+Operator Augmented Assignments
+ Operator Matematika
+Operator Augmented Assigments
+result = result + 10
+result += 10
+result = result - 10
+result -= 10
+result = result * 10
+result *= 10
+result = result ** 10
+result **= 10
+result = result / 10
+result /= 10
+result = result % 10
+result %= 10
+
+Kode : Operator Augmented Assigments
+    let result = 1 + 2; // 3
+    document.writeln("<p>1 + 2 = " + result + "</p>");
+    let originalResult = result; // 3
+
+    result -= 1; // 2
+    document.writeln("<p>" + originalResult + " - 1 = " + result + "</p>");
+    originalResult = result; // 2
+
+    result *= 2; // 4
+    document.writeln("<p>" + originalResult + " * 2 = " + result + "</p>");
+
+Operator Unary
+ Operator
+Keterangan
++
+Menandakan nilai positif
+-
+Menandakan nilai negatif
+++
+Increment, menaikkan 1 angka
+--
+Decrement, menurunkan 1 angka
+
+Kode : Operator Unary
+    let result = +1;
+    document.writeln("<p>" + result + "</p>");
+
+    result--; // result = result - 1; result -= 1; 0
+    document.writeln("<p>" + result + "</p>");
+
+    result++; // result = result + 1; result += 1; 1
+    document.writeln("<p>" + result + "</p>");
+
+    result = -result; // -1
+    document.writeln("<p>" + result + "</p>");
+
+Operator Perbandingan
